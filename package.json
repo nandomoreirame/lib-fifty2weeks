@@ -1,0 +1,72 @@
+{
+  "name": "52weeks-pkg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Fernando Moreira <nandomoreira.me@gmail.com> (https://nandomoreira.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nandomoreirame/52weeks-pkg/issues"
+  },
+  "homepage": "https://github.com/nandomoreirame/52weeks-pkg#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandomoreirame/52weeks-pkg.git"
+  },
+  "keywords": [],
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "lint": "eslint . --quiet",
+    "test": "npm run lint && npm run spec",
+    "test:watch": "npm run spec -- --watch",
+    "test:coverage": "NODE_ENV=test nyc mocha ./*.spec.js --require @babel/register",
+    "spec": "NODE_ENV=test mocha ./*.spec.js --require @babel/register"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.5",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1"
+  },
+  "nyc": {
+    "functions": 100,
+    "lines": 100,
+    "check-coverage": true,
+    "exclude": [
+      ".babelrc.js",
+      "*.spec.js"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run spec",
+      "git add"
+    ]
+  }
+}
