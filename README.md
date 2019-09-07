@@ -1,4 +1,4 @@
-# 52weeks node package
+# 52weeks node package [![Build Status](https://travis-ci.org/nandomoreirame/52weeks-pkg.svg?branch=master)](https://travis-ci.org/nandomoreirame/52weeks-pkg)
 
 ## setup
 
